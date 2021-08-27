@@ -1,6 +1,6 @@
 # Portfolio
-
-to do:
+<br />
+to do: <br />
   fix image src to local not url <br />
   search bar to have event that returns string for route change <br />
   search button refreshes page <br /> 
