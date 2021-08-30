@@ -2,66 +2,86 @@ import {
   Nav, 
   Navbar, 
   NavDropdown, 
-  Form, 
-  FormControl, 
+  Form,
   Button
 } from 'react-bootstrap'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
 import AboutMe from './Components/AboutMe';
 import Project1 from './Components/Project1'
 import Project2 from './Components/Project2'
-
+import React from 'react';
+import { useHistory } from "react-router-dom";
 
 function App() {
+  let history = useHistory();
+  const [searchValue, setSearchValue] = React.useState("xxx");
+  const paths = [
+    {label:"3D Project", path:"/proj1"},
+    {label:"Smart Brains Udemy course project", path:"/proj2"},
+    {label:"About me", path:"/about"},
+  ];
 
-  const search = (event) => {
-    const form = event.currentTarget;
-    form.preventDefault();
-    console.log("bla");
+  const searchSubmit = (event) => {
+    
+    if (searchValue <= 3) {
+      return history.push(paths[searchValue-1].path);
+    }
+    event.preventDefault();
+  };
+
+
+  // const searchOnChange = (event) => {
+  //   console.log(event.target.value);
+  //   setSearchValue(event.target.value);
+  // };
+
+  // const searchOnChange = ({target}) => {
+  //   console.log(target.value);
+  //   setSearchValue(target.value);
+  // };
+
+  const searchOnChange = ({target:{value}}) => {
+    console.log(value);
+    setSearchValue(value);
   };
 
   return (
     <div>
-      <style>
-        @import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Josefin+Slab:ital@1&family=Zilla+Slab&display=swap');
-      </style>
-
+      
       {/* Navigation */}
       <Router>
         <Navbar bg="info" expand="lg" sticky="top" >
-          <Navbar.Brand href="#" bg="success">Toms portfolio</Navbar.Brand>
+          <Navbar.Brand href="/" bg="success">Toms portfolio</Navbar.Brand>
             <Nav
               className="mr-auto my-2 my-lg-0"
               style={{ maxHeight: '100px' }}
             >
               <NavDropdown title="My projects :)" id="small-print" >
-                <NavDropdown.Item>
-                  <Nav.Link as={Link}  to="/proj1"> 3D PROJECT </Nav.Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Nav.Link as={Link} to="/proj2"> Smart Brains Udemy course project </Nav.Link>
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item>
-                  <Nav.Link as={Link} to="/about"> About me </Nav.Link>
-                </NavDropdown.Item>
-              </NavDropdown>
+              {
+                paths.map((element, index) => {
+                  return <NavDropdown.Item key={index} href={element.path}>{element.label}</NavDropdown.Item>
+                })
+              }
+             </NavDropdown>
             </Nav>
-            <Form className="d-flex"  id="small-print">
-              <FormControl
+            <Form className="d-flex" id="small-print" onSubmit={searchSubmit}>
+              <Form.Control
                 type="search"
                 placeholder="Search"
                 className="mr-2"
                 aria-label="Search"
+                value={searchValue}
+                onChange={({target:{value}}) => {setSearchValue(value);}}
               />
-              <Button type="submit" onSubmit={search} variant="outline-dark">Search</Button>
+              <Button type="submit" variant="outline-dark">Search</Button>
             </Form>
         </Navbar>
 

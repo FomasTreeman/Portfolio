@@ -12,9 +12,9 @@ function Project1 () {
                     </Card.Text>
                 </Card.Header>
                 <Card.Img 
-                style={{height:"30rem", padding:"1.5rem"}} 
-                src="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg" 
-                rounded="true" />
+                    style={{height:"30rem", padding:"1.5rem"}} 
+                    src="https://www.pixsy.com/wp-content/uploads/2021/04/ben-sweet-2LowviVHZ-E-unsplash-1.jpeg" 
+                    rounded="true" />
                 </Card>
             </Col>
         </Container>
