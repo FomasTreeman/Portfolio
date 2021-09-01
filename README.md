@@ -2,7 +2,7 @@
 <br />
 to do: <br />
 __   <br />
-__  loading project refreshes page <br />
+__  <br />
 __  search button refreshes page <br /> 
 __   <br />
   <br />
