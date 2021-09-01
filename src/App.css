@@ -32,3 +32,11 @@ body {
 #small-print {
     font-family: 'Josefin Slab', serif;
 }
+
+#dropdownItemAbout {
+	padding: -1rem;
+}
+
+#dropdownItem:hover {
+	background-color: rgb(237, 237, 237);
+}
