@@ -5,6 +5,7 @@ body {
     background-size: 400% 400%;
 	animation: gradient 7s ease infinite;
 	height: 100vh;
+	font-family: 'Lora', serif;
 }
 
 @keyframes gradient {
@@ -21,17 +22,13 @@ body {
 
 
 .navbar-brand {
-    font-family: 'Concert One', cursive;
     font-size: x-large;
+	font-weight: 700;
 }
 
-#project-block {
-    font-family: 'Zilla Slab', serif;
-}
-
-#small-print {
-    font-family: 'Josefin Slab', serif; 
-}
+/* #app, #app>div {
+	height: 100% !important;
+} */
 
 #dropdownItemAbout {
 	padding: -1rem;

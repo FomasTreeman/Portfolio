@@ -1,9 +1,9 @@
-import { Card, Col, Container} from "react-bootstrap";
+import { Card, Col, Container } from "react-bootstrap";
 
 const Project = (props) => {
         return(
             <Container className="p-lg-4 p-sm-3"> 
-                <Col id="project-block">
+                <Col>
                     <Card className="shadow-lg">
                         <Card.Header>
                             <Card.Title style={{padding:"1rem"}}> {props.label} </Card.Title>
