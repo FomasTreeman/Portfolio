@@ -1,14 +1,14 @@
 body {
-	background: linear-gradient(55deg, #CD5334 0%, #EDB88B 51%, #FAD8D6 85%);
+	/* background: linear-gradient(55deg, #CD5334 0%, #EDB88B 51%, #FAD8D6 85%);
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; */
     background-size: 400% 400%;
 	animation: gradient 7s ease infinite;
 	height: 100vh;
 	font-family: 'Lora', serif;
 }
 
-@keyframes gradient {
+/* @keyframes gradient {
 	0% {
 		background-position: 0% 50%;
 	}
@@ -18,8 +18,17 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
+} */
+
+@media (max-width: 567px) {
+	#navigation-brand {
+		padding-left: 10px;
+	}
 }
 
+#navigation {
+	opacity: 0.92;
+}
 
 .navbar-brand {
     font-size: x-large;

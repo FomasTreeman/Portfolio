@@ -15,7 +15,7 @@ const Project = (props) => {
     //     `
 
     return(
-            <Container className="p-lg-4 p-sm-3">  
+            <Container className="p-4 p-sm-3">  
                 <Col>
                     <Card className="shadow-lg">
                         <Card.Header>
@@ -35,4 +35,3 @@ const Project = (props) => {
     }
     
 export default Project;
-

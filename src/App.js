@@ -3,10 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
 import Project from './Components/ProjTemp';
 import AboutMe from './Components/AboutMe';
+import ContactMe from './Components/ContactMe';
+import Table from './Components/Table'
+import Home from './Components/Home'
 import styled, { keyframes } from 'styled-components';
 import { tada } from 'react-animations';
 import { CSSTransition } from "react-transition-group";
-import Table from './Components/Table'
+import ParticlesBg from 'particles-bg'
+import { Search } from 'react-bootstrap-icons';
 // TODO: import AlertDismissible from 
 import {
   Route,
@@ -23,14 +27,13 @@ import {
 } from 'react-bootstrap'
 
 
-  /** 
-  * ?  Animation}
-  * ! FIXME``s:
-  */
+/** ////////////////////////////////////
+* ?  Animation}
+ */////////////////////////////////////
 
 const tadaAnimation = keyframes`${tada}`;
 
-  // function call using `` instead of $()
+// function call using `` instead of $()
 let BrandName = styled.p`
   animation: 1s ${tadaAnimation};
   animation-iteration-count: infinite;
@@ -41,7 +44,7 @@ let BrandName = styled.p`
 /** ////////////////////////////////////
  * ! COMPONENT
  */////////////////////////////////////
-  
+
 function App() {
   const history = useHistory();
   const [searchValue, setSearchValue] = React.useState("");
@@ -54,7 +57,7 @@ function App() {
       path: "/proj1"
     },
     {
-      label: "Smart Brains Udemy course project",
+      label: "Smart Brains Udemy",
       title: "Face Recognition App",
       description: "My udemy course project",
       imagePath: "/image1.png",
@@ -75,18 +78,25 @@ function App() {
       label: "About me",
       path: "/about"
     },
+    {
+      label: "Contact me",
+      path: "/contact"
+    }
   ];
 
-  React.useEffect(() => {
-    fetch("/users")
-        .then(res=>{console.log(res); return res.json()})
-        .then(data=>{console.log(data)})
-    }, []);
+  // React.useEffect(() => {
+  //   fetch("/users")
+  //       .then(res=>{console.log(res); return res.json()})
+  //       .then(data=>{console.log(data)})
+  //   }, []);
 
-  // let projects = paths.filter(element => element.path !== "/about" || element.path !== "/status");
+  let projects = paths.filter((path, i) => { return isProject(path, i) });
 
-  let projects = paths.filter(element => element.path !== "/about");
-  projects = projects.filter(element => element.path !== "/status");
+  function isProject(path, index) {
+    if (index < 3) {
+      return path
+    }
+  };
 
   const searchSubmit = (event) => {
     let matchingElement = null;
@@ -98,69 +108,82 @@ function App() {
     matchingElement ? history.push(matchingElement.path) : event.preventDefault();
   }
 
-  
-  
 
   return (
     <div>
 
       {
-        /** 
+        /** ////////////////////////////////////
         * !  Navigation}
-        */
+        */////////////////////////////////////
       }
 
-      <Navbar bg="info" expand="sm" sticky="top" >
-        <Navbar.Brand href="/" bg="success" >
-          <BrandName> Tom's Portfolio </BrandName>
-        </Navbar.Brand>
-        <Nav
-          className="mr-auto my-2 my-lg-0"
-          style={{ maxHeight: '100px' }}
-        >
-          <NavDropdown title="My projects :)" id="small-print" className="mt-2" >
-            {
-              projects.map((element, index) => {
-                return (
-                  <Nav.Link 
-                    key={index} 
-                    as={Link} 
-                    className="pl-3" 
-                    id="dropdownItem" 
-                    to={element.path}>{element.label}
-                  </Nav.Link>
-                )
-              })
-            }
+      <Navbar id="navigation" className="justify-content-center" bg="info" expand="sm" sticky="top" >
+        <Container fluid className="pr-0">
+          <Navbar.Brand href="/Home" bg="success" id="navigation-brand">
+            <BrandName> Tom's Portfolio </BrandName>
+          </Navbar.Brand>
+          <Navbar.Toggle className="px-2"/>
+          <Navbar.Collapse className="justify-content-end">
+            <Nav
+              className="pr-3"
+              style={{ maxHeight: '100px' }}
+            >
+              <NavDropdown title="My projects " id="small-print" align="end">
+                {
+                  projects.map((element, index) => {
+                    return (
+                      <Nav.Link
+                        key={index}
+                        as={Link}
+                        className="px-3"
+                        id="dropdownItem"
+                        to={element.path}
+                      >
+                        {element.label}
+                      </Nav.Link>
+                    )
+                  })
+                }
 
-            <div key="-1" className="m-0 p-0 pl-3">
-              <NavDropdown.Divider />
-              <Nav.Link as={Link} id="dropdownItemAbout" to={paths[paths.length - 2].path}>{paths[paths.length - 2].label}</Nav.Link>
-              <Nav.Link as={Link} id="dropdownItemAbout" to={paths[paths.length - 1].path}>{paths[paths.length - 1].label}</Nav.Link>
-            </div>
-          </NavDropdown>
-        </Nav>
-        <Form className="d-flex" id="small-print" onSubmit={searchSubmit} >
-          <Form.Control
-            type="search"
-            placeholder="Search"
-            className="mr-2"
-            aria-label="Search"
-            value={searchValue}
-            onChange={({ target: { value } }) => { setSearchValue(value); }}
-          />
-          <Button type="submit" variant="outline-secondary">Search</Button>
-        </Form>
+                <div key="-1" className="m-0 p-0 pl-3">
+                  <NavDropdown.Divider />
+                  <Nav.Link as={Link} id="dropdownItemAbout" to={paths[paths.length - 3].path}>{paths[paths.length - 3].label}</Nav.Link>
+                  <Nav.Link as={Link} id="dropdownItemAbout" to={paths[paths.length - 2].path}>{paths[paths.length - 2].label}</Nav.Link>
+                  <Nav.Link as={Link} id="dropdownItemAbout" to={paths[paths.length - 1].path}>{paths[paths.length - 1].label}</Nav.Link>
+                </div>
+              </NavDropdown>
+            </Nav>
+            <Form className="d-flex" id="small-print" onSubmit={searchSubmit} >
+              <Form.Control
+                type="search"
+                placeholder="Search"
+                className="mr-2"
+                aria-label="Search"
+                value={searchValue}
+                onChange={({ target: { value } }) => { setSearchValue(value); }}
+              />
+              <Button type="submit" variant="outline-secondary">
+                <Search />
+              </Button>
+            </Form>
+          </Navbar.Collapse>
+        </Container>
       </Navbar>
 
+
+
       {
-        /** 
+        /** ////////////////////////////////////
         * !  Route Change}
-        */
+        */////////////////////////////////////
       }
 
-      {/* was <Switch> switch prevents an exit animation as it changes th eurl before exiting stage */}
-      <Container className="container">
+      {/* was <Switch> switch prevents an exit animation as it changes the url before exiting stage */}
+      <Container>
+        <Route path="/Home">
+          <Home />
+        </Route>
         {
           projects.map((element) => {
             return (
@@ -175,7 +198,7 @@ function App() {
                     unmountOnExit
                   >
                     <div className="projCard">
-                      <Project 
+                      <Project
                         key={element.path}
                         label={element.title}
                         description={element.description}
@@ -189,19 +212,23 @@ function App() {
           })
         }
         <Route path="/status">
-          <Table label={paths[paths.length - 2].label} />
+          <Table label={paths[paths.length - 3].label} />
         </Route>
         <Route path="/about">
-          <AboutMe label={paths[paths.length - 1].label} />
+          <AboutMe label={paths[paths.length - 2].label} />
+        </Route>
+        <Route path="/contact">
+          <ContactMe label={paths[paths.length - 1].label} />
         </Route>
       </Container>
-
-      {/* Item/blog */}
 
       {/* <AlertDismissible show='show' setShow='setShow'/> */}
 
       {/* Footer */}
 
+      {/* BG */}
+
+      <ParticlesBg type="circle" bg={true} />
     </div>
   );
 }
