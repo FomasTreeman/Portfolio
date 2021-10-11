@@ -10,8 +10,8 @@ import mira from "../Images/Graphics/mira.jpeg"
 var tom = [t, o, m];
 var otherImgs = [print, col, rearrange, mira]
 
-// var width = window.innerWidth;
 
+// * why doesnt this work
 // function Imgs(arrayI) {
 //     arrayI.map((image) => {
 //         return (
@@ -22,15 +22,6 @@ var otherImgs = [print, col, rearrange, mira]
 //     })
 // }
 
-// function Tom() {
-//     tom.map((image) => {
-//         return (
-//             <Col>
-//                 <Image style={{ "max-width": "500px" }} src={image} alt="image" thumbnail fluid />
-//             </Col>
-//         )
-//     })
-// }
 
 function Home() {
 

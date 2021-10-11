@@ -132,7 +132,9 @@ function App() {
 
       <Navbar id="navigation" className="justify-content-center" bg="info" expand="sm" sticky="top" >
         <Container fluid className="pr-0">
-          <Navbar.Brand as={Link} to={paths[3].path} bg="success" id="navigation-brand">
+          <Navbar.Brand as={Link} to={paths[3
+          
+          ].path} bg="success" id="navigation-brand">
             <BrandName> Tom's Portfolio </BrandName>
           </Navbar.Brand>
           <Navbar.Toggle className="px-2"/>
@@ -194,9 +196,6 @@ function App() {
 
       {/* was <Switch> switch prevents an exit animation as it changes the url before exiting stage */}
       <Container>
-        <Route path="/Home">
-          <Home />
-        </Route>
         {
           projects.map((element) => {
             return (
@@ -224,6 +223,9 @@ function App() {
             )
           })
         }
+        <Route path="/Home">
+          <Home />
+        </Route>
         <Route path="/graphics">
           <Graphics/>
         </Route>
