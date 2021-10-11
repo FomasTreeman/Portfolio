@@ -1,7 +1,7 @@
 import { Card, Col, Container } from "react-bootstrap";
 
 const Project = (props) => {
-
+    
     function Content() {
         if (props.path === "/proj1") {
             return (
@@ -12,7 +12,7 @@ const Project = (props) => {
                     <iframe
                         title="hola"
                         className="p-3"
-                        src="https://codesandbox.io/embed/practical-sara-wu2i9?fontsize=14&hidenavigation=1&theme=dark&view=preview&hidedevtools=1"
+                        src="https://codesandbox.io/embed/threejs-m7f77?fontsize=14&hidenavigation=1&theme=dark&view=preview&hidedevtools=1"
                         style={{ width: "100%", height: "500px", border: "0", "borderRadius": "4px", overflow: "hidden" }}
                         sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
                     ></iframe>
