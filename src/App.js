@@ -6,6 +6,9 @@ import AboutMe from './Components/AboutMe';
 import ContactMe from './Components/ContactMe';
 import Table from './Components/Table'
 import Home from './Components/Home'
+import image1 from "./Images/image.png"
+import image2 from "./Images/image1.png"
+import image3 from "./Images/image2.jpeg"
 import styled, { keyframes } from 'styled-components';
 import { tada } from 'react-animations';
 import { CSSTransition } from "react-transition-group";
@@ -53,21 +56,21 @@ function App() {
       label: "3D Project",
       title: "My three.js experiment",
       description: "My Three.js project",
-      imagePath: "/image.png",
+      imagePath: [image1],
       path: "/proj1"
     },
     {
       label: "Smart Brains Udemy",
       title: "Face Recognition App",
       description: "My udemy course project",
-      imagePath: "/image1.png",
+      imagePath: [image2],
       path: "/proj2"
     },
     {
       label: "Kodi Project",
       title: "Kodi experiment",
       description: "My kodi project",
-      imagePath: "/image2.jpeg",
+      imagePath: [image3],
       path: "/proj3"
     },
     {
