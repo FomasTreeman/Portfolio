@@ -1,24 +1,9 @@
 body {
-	/* background: linear-gradient(55deg, #CD5334 0%, #EDB88B 51%, #FAD8D6 85%);
-    background-repeat: no-repeat;
-    background-attachment: fixed; */
-    background-size: 400% 400%;
-	animation: gradient 7s ease infinite;
 	height: 100vh;
 	font-family: 'Lora', serif;
 }
 
-/* @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-} */
+
 
 @media (max-width: 567px) {
 	#navigation-brand {
@@ -49,8 +34,6 @@ body {
 
 .projCard {
 	position: absolute;
-	/* left: 15px;
-	top: 15px; */
 }
 
 .page-enter {

@@ -6,6 +6,7 @@ import AboutMe from './Components/AboutMe';
 import ContactMe from './Components/ContactMe';
 import Table from './Components/Table'
 import Home from './Components/Home'
+import Graphics from './Components/Graphics'
 import image1 from "./Images/image.png"
 import image2 from "./Images/image1.png"
 import image3 from "./Images/image2.jpeg"
@@ -74,6 +75,14 @@ function App() {
       path: "/proj3"
     },
     {
+      label: "Home",
+      path: "/home"
+    },
+    {
+      label: "Graphics",
+      path: "/graphics"
+    },
+    {
       label: "Project status",
       path: "/status"
     },
@@ -123,7 +132,7 @@ function App() {
 
       <Navbar id="navigation" className="justify-content-center" bg="info" expand="sm" sticky="top" >
         <Container fluid className="pr-0">
-          <Navbar.Brand href="/Home" bg="success" id="navigation-brand">
+          <Navbar.Brand as={Link} to={paths[3].path} bg="success" id="navigation-brand">
             <BrandName> Tom's Portfolio </BrandName>
           </Navbar.Brand>
           <Navbar.Toggle className="px-2"/>
@@ -151,6 +160,7 @@ function App() {
 
                 <div key="-1" className="m-0 p-0 pl-3">
                   <NavDropdown.Divider />
+                  <Nav.Link as={Link} id="dropdownItemAbout" to={paths[paths.length - 4].path}>{paths[paths.length - 4].label}</Nav.Link>
                   <Nav.Link as={Link} id="dropdownItemAbout" to={paths[paths.length - 3].path}>{paths[paths.length - 3].label}</Nav.Link>
                   <Nav.Link as={Link} id="dropdownItemAbout" to={paths[paths.length - 2].path}>{paths[paths.length - 2].label}</Nav.Link>
                   <Nav.Link as={Link} id="dropdownItemAbout" to={paths[paths.length - 1].path}>{paths[paths.length - 1].label}</Nav.Link>
@@ -202,7 +212,7 @@ function App() {
                   >
                     <div className="projCard">
                       <Project
-                        key={element.path}
+                        path={element.path}
                         label={element.title}
                         description={element.description}
                         imagePath={element.imagePath}
@@ -214,6 +224,9 @@ function App() {
             )
           })
         }
+        <Route path="/graphics">
+          <Graphics/>
+        </Route>
         <Route path="/status">
           <Table label={paths[paths.length - 3].label} />
         </Route>
@@ -231,7 +244,7 @@ function App() {
 
       {/* BG */}
 
-      <ParticlesBg type="circle" bg={true} />
+      <ParticlesBg type="circle" bg={{position: "fixed", zIndex: -1, top: 0, left: 0}} />
     </div>
   );
 }
