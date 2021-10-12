@@ -1,25 +1,53 @@
-import { Container, Card, Form, Button } from "react-bootstrap";
+import { Container, Card, Form, Button, Alert } from "react-bootstrap";
 import { useState } from "react";
 import emailjs from "emailjs-com";
 
 function ContactMe() {
     const [MessageValue, setMessageValue] = useState("");
     const [EmailValue, setEmailValue] = useState("");
+    const [show, setShow] = useState(false);
+    const [sent, setSent] = useState(false);
     var templateParams = {
         message: MessageValue,
         user_email: EmailValue
     };
 
-    function emailMe(event) {
-        event.preventDefault();
-        emailjs.send('service_qbfomcj', 'template_ivzdenr', templateParams, 'user_6vE5pYNvceEKBSm3mQVi5').then(
-            (response) => {
-                console.log('SUCCESS!', response.status, response.text);
-            }, (err) => {
-                console.log('FAILED...', err);
-            });
+    function SubmitAlert(props) {
+        console.log(props.isSent)
+        let vari = "";
+        let mess = "";
+        props.isSent === false ? vari = "danger" : vari = "success";
+        vari === "danger" ? mess = "not sent :(" : mess = "sent!"
+        if (sent && show) {
+            return (
+                <Alert variant={vari} onClose={() => setShow(false)} dismissible>
+                    <Alert.Heading>Email {mess}</Alert.Heading>
+                </Alert>
+            );
+        }
+        return <Button
+            variant="primary"
+            type="submit"
+            onClick={() => setShow(true)}>
+            Submit
+        </Button>;
     }
 
+    function emailMe(event) {
+        event.preventDefault();
+        if (MessageValue !== "" && EmailValue !== "") {
+            emailjs.send('service_qbfomcj', 'template_ivzdenr', templateParams, 'user_6vE5pYNvceEKBSm3mQVi5').then(
+                (response) => {
+                    console.log('SUCCESS!', response.status, response.text);
+                    setSent(true);
+                }, (err) => {
+                    console.log('FAILED...', err);
+                })
+        } else {
+            console.log("no message or email");
+            setSent(false)
+        }
+    }
 
     return (
         <Container className="p-4">
@@ -47,11 +75,7 @@ function ContactMe() {
                             onChange={({ target: { value } }) => { setMessageValue(value); }}
                         />
                     </Form.Group>
-                    <Button
-                        variant="primary"
-                        type="submit">
-                        Submit
-                    </Button>
+                    <SubmitAlert isSent={sent} />
                 </Form>
             </Card>
         </Container>
