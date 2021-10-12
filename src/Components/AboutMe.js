@@ -1,23 +1,27 @@
 import { Button, Modal, Row, Container } from "react-bootstrap";
-import  {useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import "whatwg-fetch"
 
-function AboutMe (props) {
+function AboutMe(props) {
     const [response, setResponse] = useState();
     const [show, setShow] = useState(false);
-    
+
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     useEffect(() => {
-        window.fetch("https://api.nomics.com/v1/currencies/ticker?key=7d5c5259f3e27e6e749ca9a2af23388fb95c8961&ids=BTC&interval=1d&convert=GBP")
-            .then(res=>{return res.json()})
-            .then(data=>{return setResponse(data[0].price)})
+        fetch("https://api.nomics.com/v1/currencies/ticker?key=7d5c5259f3e27e6e749ca9a2af23388fb95c8961&ids=BTC&interval=1d&convert=GBP")
+            .then(res => { return res.json() })
+            .then(data => { return setResponse(data[0].price) })
+            .catch((e) => {
+                console.log(e)
+                return setResponse("error")
+            })
     }, [])
-        
+
 
     return (
-        <Container id="small-print">   
+        <Container id="small-print">
             <Row className="p-5 d-flex justify-content-center" >
                 <h2 > {props.label} </h2>
             </Row>
@@ -35,7 +39,7 @@ function AboutMe (props) {
                     </Modal.Footer>
                 </Modal>
             </Row>
-        </Container>    
+        </Container>
     );
 }
 
