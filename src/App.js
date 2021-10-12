@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css"
 import Project from './Components/ProjTemp';
@@ -19,7 +19,8 @@ import { Search } from 'react-bootstrap-icons';
 import {
   Route,
   Link,
-  useHistory
+  useHistory,
+  Redirect
 } from "react-router-dom";
 import {
   Container,
@@ -51,7 +52,7 @@ let BrandName = styled.p`
 
 function App() {
   const history = useHistory();
-  const [searchValue, setSearchValue] = React.useState("");
+  const [searchValue, setSearchValue] = useState("");
   const paths = [
     {
       label: "3D Project",
@@ -102,13 +103,7 @@ function App() {
   //       .then(data=>{console.log(data)})
   //   }, []);
 
-  let projects = paths.filter((path, i) => { return isProject(path, i) });
-
-  function isProject(path, index) {
-    if (index < 3) {
-      return path
-    }
-  };
+  let projects = paths.filter((path, i) => i < 3);
 
   const searchSubmit = (event) => {
     let matchingElement = null;
@@ -132,12 +127,10 @@ function App() {
 
       <Navbar id="navigation" className="justify-content-center" bg="info" expand="sm" sticky="top" >
         <Container fluid className="pr-0">
-          <Navbar.Brand as={Link} to={paths[3
-          
-          ].path} bg="success" id="navigation-brand">
+          <Navbar.Brand as={Link} to={paths[3].path} bg="success" id="navigation-brand">
             <BrandName> Tom's Portfolio </BrandName>
           </Navbar.Brand>
-          <Navbar.Toggle className="px-2"/>
+          <Navbar.Toggle className="px-2" />
           <Navbar.Collapse className="justify-content-end">
             <Nav
               className="pr-3"
@@ -227,7 +220,7 @@ function App() {
           <Home />
         </Route>
         <Route path="/graphics">
-          <Graphics/>
+          <Graphics />
         </Route>
         <Route path="/status">
           <Table label={paths[paths.length - 3].label} />
@@ -238,6 +231,10 @@ function App() {
         <Route path="/contact">
           <ContactMe label={paths[paths.length - 1].label} />
         </Route>
+        <Route exact path="/" render={() => (
+          <Redirect to="/proj1" />
+        )} />
+
       </Container>
 
       {/* <AlertDismissible show='show' setShow='setShow'/> */}
@@ -246,7 +243,7 @@ function App() {
 
       {/* BG */}
 
-      <ParticlesBg type="circle" bg={{position: "fixed", zIndex: -1, top: 0, left: 0}} />
+      <ParticlesBg type="circle" bg={{ position: "fixed", zIndex: -1, top: 0, left: 0 }} />
     </div>
   );
 }

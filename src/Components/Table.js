@@ -31,7 +31,7 @@ const Project = (props) => {
                         <Card.Header>
                             <Card.Title style={{padding:"1rem"}}> {props.label} </Card.Title>
                         </Card.Header>
-                        <Table striped bordered hover>
+                        <Table striped bordered hover responsive>
                             <thead>
                                 <tr>
                                 <th>Repo Name</th>

@@ -3,23 +3,21 @@ import { useState } from "react";
 import emailjs from "emailjs-com";
 
 function ContactMe() {
-
     const [MessageValue, setMessageValue] = useState("");
     const [EmailValue, setEmailValue] = useState("");
-
     var templateParams = {
         message: MessageValue,
-        email: EmailValue
+        user_email: EmailValue
     };
 
     function emailMe(event) {
-        emailjs.send('service_qbfomcj', 'template_ivzdenr', templateParams, 'user_6vE5pYNvceEKBSm3mQVi5')
-            .then((response) => {
+        event.preventDefault();
+        emailjs.send('service_qbfomcj', 'template_ivzdenr', templateParams, 'user_6vE5pYNvceEKBSm3mQVi5').then(
+            (response) => {
                 console.log('SUCCESS!', response.status, response.text);
             }, (err) => {
                 console.log('FAILED...', err);
             });
-        event.preventdefault()
     }
 
 

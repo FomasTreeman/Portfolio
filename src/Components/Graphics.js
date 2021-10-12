@@ -23,15 +23,15 @@ var otherImgs = [print, col, rearrange, mira]
 // }
 
 
-function Home() {
+function Graphics() {
 
     return (
         <Container fluid >
-            <Row className="p-3" fluid>
+            <Row className="p-3">
                 {
-                    tom.map((image) => {
+                    tom.map((image, index) => {
                         return (
-                            <Col>
+                            <Col key={index}>
                                 <Image src={image} alt="image" thumbnail/>
                             </Col>
                         )
@@ -40,9 +40,9 @@ function Home() {
             </Row>
             <Row className="p-3">
             {
-                    otherImgs.map((image) => {
+                    otherImgs.map((image, index) => {
                         return (
-                            <Col>
+                            <Col key={index}>
                                 <Image src={image} alt="image" thumbnail />
                             </Col>
                         )
@@ -54,4 +54,4 @@ function Home() {
     )
 }
 
-export default Home;
+export default Graphics;
