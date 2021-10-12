@@ -20,9 +20,6 @@ body {
 	font-weight: 700;
 }
 
-#dropdownItemAbout {
-	padding: -1rem;
-}
 
 #dropdownItem:hover {
 	background-color: rgb(237, 237, 237);

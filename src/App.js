@@ -7,9 +7,7 @@ import ContactMe from './Components/ContactMe';
 import Table from './Components/Table'
 import Home from './Components/Home'
 import Graphics from './Components/Graphics'
-import image1 from "./Images/image.png"
-import image2 from "./Images/image1.png"
-import image3 from "./Images/image2.jpeg"
+import paths from './Components/Paths'
 import styled, { keyframes } from 'styled-components';
 import { tada } from 'react-animations';
 import { CSSTransition } from "react-transition-group";
@@ -45,7 +43,6 @@ let BrandName = styled.p`
   margin: 0;
   `;
 
-
 /** ////////////////////////////////////
  * ! COMPONENT
  */////////////////////////////////////
@@ -53,49 +50,6 @@ let BrandName = styled.p`
 function App() {
   const history = useHistory();
   const [searchValue, setSearchValue] = useState("");
-  const paths = [
-    {
-      label: "3D Project",
-      title: "My three.js experiment",
-      description: "My Three.js project",
-      imagePath: [image1],
-      path: "/proj1"
-    },
-    {
-      label: "Smart Brains Udemy",
-      title: "Face Recognition App",
-      description: "My udemy course project",
-      imagePath: [image2],
-      path: "/proj2"
-    },
-    {
-      label: "Kodi Project",
-      title: "Kodi experiment",
-      description: "My kodi project",
-      imagePath: [image3],
-      path: "/proj3"
-    },
-    {
-      label: "Home",
-      path: "/home"
-    },
-    {
-      label: "Graphics",
-      path: "/graphics"
-    },
-    {
-      label: "Project status",
-      path: "/status"
-    },
-    {
-      label: "About me",
-      path: "/about"
-    },
-    {
-      label: "Contact me",
-      path: "/contact"
-    }
-  ];
 
   // React.useEffect(() => {
   //   fetch("/users")
@@ -115,6 +69,13 @@ function App() {
     matchingElement ? history.push(matchingElement.path) : event.preventDefault();
   }
 
+  function DropdownList() {
+    var items = [];
+    for (let i = 4; i > 0; i--) {
+      items.push(<Nav.Link key={i} as={Link} className="p-1 pl-0 m-auto" to={paths[paths.length - i].path}>{paths[paths.length - i].label}</Nav.Link>)
+    }
+    return <div>{items}</div>
+  }
 
   return (
     <div>
@@ -132,10 +93,7 @@ function App() {
           </Navbar.Brand>
           <Navbar.Toggle className="px-2" />
           <Navbar.Collapse className="justify-content-end">
-            <Nav
-              className="pr-3"
-              style={{ maxHeight: '100px' }}
-            >
+            <Nav className="pr-3" style={{ maxHeight: '100px' }}>
               <NavDropdown title="My projects " id="small-print" align="end">
                 {
                   projects.map((element, index) => {
@@ -152,14 +110,10 @@ function App() {
                     )
                   })
                 }
-
                 <div key="-1" className="m-0 p-0 pl-3">
                   <NavDropdown.Divider />
-                  <Nav.Link as={Link} id="dropdownItemAbout" to={paths[paths.length - 4].path}>{paths[paths.length - 4].label}</Nav.Link>
-                  <Nav.Link as={Link} id="dropdownItemAbout" to={paths[paths.length - 3].path}>{paths[paths.length - 3].label}</Nav.Link>
-                  <Nav.Link as={Link} id="dropdownItemAbout" to={paths[paths.length - 2].path}>{paths[paths.length - 2].label}</Nav.Link>
-                  <Nav.Link as={Link} id="dropdownItemAbout" to={paths[paths.length - 1].path}>{paths[paths.length - 1].label}</Nav.Link>
-                </div>
+                  <DropdownList/>
+                  </div>
               </NavDropdown>
             </Nav>
             <Form className="d-flex" id="small-print" onSubmit={searchSubmit} >

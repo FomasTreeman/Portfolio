@@ -13,7 +13,6 @@ function ContactMe() {
     };
 
     function SubmitAlert(props) {
-        console.log(props.isSent)
         let vari = "";
         let mess = "";
         props.isSent === false ? vari = "danger" : vari = "success";
