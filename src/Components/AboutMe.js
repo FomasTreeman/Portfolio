@@ -1,5 +1,6 @@
 import { Button, Modal, Row, Container } from "react-bootstrap";
 import  {useState, useEffect } from 'react';
+import "whatwg-fetch"
 
 function AboutMe (props) {
     const [response, setResponse] = useState();
