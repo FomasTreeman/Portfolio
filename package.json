@@ -39,5 +39,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://fomastreeman.github.io/Portfolio"
+  "homepage": "http://fomastreeman.github.io/Portfolio",
+  "devDependencies": {
+    "@types/whatwg-fetch": "^0.0.33"
+  }
 }

@@ -10,7 +10,7 @@ function AboutMe (props) {
     const handleShow = () => setShow(true);
 
     useEffect(() => {
-        fetch("https://api.nomics.com/v1/currencies/ticker?key=7d5c5259f3e27e6e749ca9a2af23388fb95c8961&ids=BTC&interval=1d&convert=GBP")
+        window.fetch("https://api.nomics.com/v1/currencies/ticker?key=7d5c5259f3e27e6e749ca9a2af23388fb95c8961&ids=BTC&interval=1d&convert=GBP")
             .then(res=>{return res.json()})
             .then(data=>{return setResponse(data[0].price)})
     }, [])
