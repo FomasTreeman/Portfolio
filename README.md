@@ -1,6 +1,8 @@
 # Portfolio
+My visual presentation of projects
+
 <br />
-to do: <br />
-__ <br />
-__  search button refreshes page <br /> 
-__  fetch bug for btc price </br>
+TODO: <br />
+<br />
+   search button refreshes page <br /> 
+   fetch bug for btc price needs cors approval which needs server integration </br>
