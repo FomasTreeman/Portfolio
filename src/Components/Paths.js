@@ -1,6 +1,7 @@
 import image1 from "../Images/image.png"
 import image2 from "../Images/image1.png"
 import image3 from "../Images/image2.jpeg"
+import ss from "../Images/UdemySS.png"
 
 const paths = [
     {
@@ -14,7 +15,7 @@ const paths = [
       label: "Smart Brains Udemy",
       title: "Face Recognition App",
       description: "My udemy course project",
-      imagePath: [image2],
+      imagePath: [[image2], [ss]],
       path: "/proj2"
     },
     {

@@ -7,7 +7,9 @@ body {
 
 @media (max-width: 567px) {
 	#navigation-brand {
-		padding-left: 10px;
+		margin: auto;
+		width: 50%;
+		padding-left: 25px;
 	}
 }
 
@@ -27,6 +29,7 @@ body {
 
 .container {
 	position: relative;
+	padding: 0;
   }
 
 .projCard {

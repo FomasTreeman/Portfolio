@@ -23,26 +23,35 @@ const Project = (props) => {
                 return (
                     <div>
                         <Card.Img
-                            style={{ padding: "1.5rem" }}
-                            src={props.imagePath}
+                            style={{ padding: "1.2rem", width: "20vw", float: "right" }}
+                            src={props.imagePath[0]}
                             rounded="true" />
+                        <p className="mx-4 my-2 mt-3" style={{ overflow: "auto" }}>
+                            This was a paid course through udemy by Andrei Neagoie a Zero To Mastery class for full stack developers. There were a few projects but the final "show-off" project was a web app that used a machine learning API that we used to recognise the location of a face in an image and outline it. This application also used a server to store users and their details. Therefore having a signin, register and logout feature. The skills I used and learned were PostgreSQL, React (therefore JS/ES, HTML, CSS) and express for the API we created for the user to signin and out etc.
+                        </p>
+                        <Card.Img
+                            style={{ padding: "1.2rem", "padding-bottom": 0 }}
+                            src={props.imagePath[1]}
+                            rounded="true" />
+                        <p className="mx-4 mb-2" style={{ opacity: "0.5", "font-size": "0.8em"}}>
+                            This app was not deployed 
+                        </p>
                     </div>
                 );
             case ("/proj3"):
                 return (
                     <div>
-                        <Card.Img
-                            style={{ padding: "1.5rem" }}
-                            src={props.imagePath}
-                            rounded="true" />
+                        <p className="mx-4 my-2 mt-3">
+                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazsxdcfgvhfdseazsxdcfvgbhjnkhgftdrtsezstxrdytcfuvgibuhijnomkpjnoihubgyvftcdrxsezxdrcftvgybhunijmokmjinbytvre4w3xecr7tvyb8unimominuby7tv6rce5xw4zx5ecrvt7bynumi
+                        </p>
                     </div>
                 )
-            default :
+            default:
         }
     }
 
     return (
-        <Container className="p-4 p-sm-3">
+        <Container className="pt-3">
             <Col>
                 <Card className="shadow-lg">
                     <Card.Header>
