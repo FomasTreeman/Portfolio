@@ -4,7 +4,6 @@ body {
 }
 
 
-
 @media (max-width: 567px) {
 	#navigation-brand {
 		margin: auto;
@@ -13,8 +12,22 @@ body {
 	}
 }
 
-#navigation {
-	opacity: 0.92;
+#toggler {
+	position:relative;
+	padding: 10px 20px;  
+	border: none;
+	background: none;
+	font-family: "Source Code Pro";
+	font-weight: 900;
+	text-transform: uppercase;
+	font-size: 40px;  
+	color: var(--text-color);
+	z-index: 0;  
+	overflow: hidden;   
+}
+
+#toggler:hover {
+	text-shadow: 2px 2px 1px tomato;
 }
 
 .navbar-brand {

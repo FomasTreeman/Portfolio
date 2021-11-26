@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "engines": {
-    "node": "^8 || ^10"
+    "node": "16.13.0"
   },
   "dependencies": {
     "bootstrap": "4.6.0",

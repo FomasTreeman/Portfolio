@@ -1,32 +1,17 @@
 import { useState } from "react"
 import { Search } from 'react-bootstrap-icons';
-import styled, { keyframes } from 'styled-components';
-import { tada } from 'react-animations';
 import {
     Container,
     Nav,
     Navbar,
     NavDropdown,
     Form,
-    Button
+    Button,
 } from 'react-bootstrap'
 import {
     useHistory,
     Link
 } from 'react-router-dom';
-
-/** ////////////////////////////////////
-* ?  Animation}
- */////////////////////////////////////
-
-const tadaAnimation = keyframes`${tada}`;
-
-// function call using `` instead of $()
-let BrandName = styled.p`
-   animation: 1s ${tadaAnimation};
-   animation-iteration-count: infinite;
-   margin: 0;
-   `;
 
 
 function NavigationBar(props) {
@@ -56,13 +41,12 @@ function NavigationBar(props) {
 
 
     return (
-        <Navbar id="navigation" className="justify-content-center" bg="info" expand="sm" sticky="top" >
-            <Container fluid className="pr-0">
-                <Navbar.Brand as={Link} to={paths[3].path} bg="success" id="navigation-brand">
-                    <BrandName> Tom's Portfolio </BrandName>
-                </Navbar.Brand>
-                <Navbar.Toggle className="px-2" />
-                <Navbar.Collapse className="justify-content-end">
+        <Navbar id="navigation" className="justify-content-center p-2" expand="always" sticky="top" >
+            <Container fluid className="justify-content-center">
+                <Navbar.Toggle className="px-2" id="toggler">
+                    Fomas Treeman
+                </Navbar.Toggle>
+                <Navbar.Collapse className="justify-content-center">
                     <Nav className="pr-3" style={{ maxHeight: '100px' }}>
                         <NavDropdown title="My projects " id="small-print" align="end">
                             {
