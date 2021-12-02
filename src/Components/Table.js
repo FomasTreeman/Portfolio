@@ -15,7 +15,7 @@ const Project = (props) => {
     function GetRepoDeets() {
         if (GitResponse !== undefined) {
             RepoNames = GitResponse.map(item => {
-                return <tr key={item.name}><td>{item.name}</td><td>{item.pushed_at}</td><td>{item.url}S</td></tr>
+                return <tr key={item.name}><td>{item.name}</td><td>{item.pushed_at}</td><td>{item.url}S</td>||</tr>
             });
             return RepoNames;
         } else {

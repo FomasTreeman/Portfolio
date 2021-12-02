@@ -33,8 +33,8 @@ const Project = (props) => {
                             style={{ padding: "1.2rem", "padding-bottom": 0 }}
                             src={props.imagePath[1]}
                             rounded="true" />
-                        <p className="mx-4 mb-2" style={{ opacity: "0.5", "font-size": "0.8em"}}>
-                            This app was not deployed 
+                        <p className="mx-4 mb-2" style={{ opacity: "0.5", "font-size": "0.8em" }}>
+                            This app was not deployed
                         </p>
                     </div>
                 );
@@ -42,7 +42,8 @@ const Project = (props) => {
                 return (
                     <div>
                         <p className="mx-4 my-2 mt-3">
-                            aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazsxdcfgvhfdseazsxdcfvgbhjnkhgftdrtsezstxrdytcfuvgibuhijnomkpjnoihubgyvftcdrxsezxdrcftvgybhunijmokmjinbytvre4w3xecr7tvyb8unimominuby7tv6rce5xw4zx5ecrvt7bynumi
+                            This is a TV show recommendation service that I made for my home media centre, that is triggered by an Alexa skill. This uses a relational database schema.
+                            It logs all watched items (Live TV and locally installed), and recommends the next thing to watch according to what you’ve viewed previously.
                         </p>
                     </div>
                 )
