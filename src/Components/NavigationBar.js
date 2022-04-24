@@ -41,9 +41,9 @@ function NavigationBar(props) {
 
 
     return (
-        <Navbar id="navigation" className="justify-content-center p-2" expand="always" sticky="top" >
+        <Navbar id="navigation" className="justify-content-center p-2" expand="always" sticky="top" expanded="true" >
             <Container fluid className="justify-content-center">
-                <Navbar.Toggle className="px-2" id="toggler">
+                <Navbar.Toggle className="px-2" id="toggler" >
                     Thomas Freeman
                 </Navbar.Toggle>
                 <Navbar.Collapse className="justify-content-center">
