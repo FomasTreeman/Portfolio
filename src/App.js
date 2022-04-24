@@ -6,7 +6,7 @@ import Routing from './Components/Routing'
 import NavigationBar from './Components/NavigationBar'
 // TODO: import AlertDismissible from 
 
-let projects = paths.filter((path, i) => i < 3);
+let projects = paths.filter((path, i) => i < 4);
 
 function App() {
   return (

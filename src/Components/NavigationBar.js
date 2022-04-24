@@ -23,7 +23,7 @@ function NavigationBar(props) {
 
     function DropdownList() {
         var items = [];
-        for (let i = 4; i > 0; i--) {
+        for (let i = 5; i > 0; i--) {
             items.push(<Nav.Link key={i} as={Link} className="p-1 pl-0 m-auto" to={paths[paths.length - i].path}>{paths[paths.length - i].label}</Nav.Link>)
         }
         return <div>{items}</div>
@@ -44,7 +44,7 @@ function NavigationBar(props) {
         <Navbar id="navigation" className="justify-content-center p-2" expand="always" sticky="top" >
             <Container fluid className="justify-content-center">
                 <Navbar.Toggle className="px-2" id="toggler">
-                    Fomas Treeman
+                    Thomas Freeman
                 </Navbar.Toggle>
                 <Navbar.Collapse className="justify-content-center">
                     <Nav className="pr-3" style={{ maxHeight: '100px' }}>

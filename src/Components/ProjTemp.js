@@ -47,6 +47,16 @@ const Project = (props) => {
                         </p>
                     </div>
                 )
+            case ("/proj4"):
+                return (
+                    <div>
+                        <p className="mx-4 my-2 mt-3">
+                            IN DEVELOPEMENT!    This is a simple messaging app.    
+
+                            IN DEVELOPMENT!
+                        </p>
+                    </div>
+                )
             default:
         }
     }
