@@ -1,6 +1,8 @@
 # Portfolio
 My visual presentation of projects
 
+to start click on my name 
+
 <br />
 TODO: <br />
 <br />
