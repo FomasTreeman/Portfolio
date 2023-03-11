@@ -1,73 +1,86 @@
-body {
-	height: 100vh;
-	font-family: 'Lora', serif;
+:root {
+  --text-color: white;
 }
 
+body {
+  height: 100vh;
+  font-family: "Lora", serif;
+}
 
 @media (max-width: 567px) {
-	#navigation-brand {
-		margin: auto;
-		width: 50%;
-		padding-left: 25px;
-	}
+  #navigation-brand {
+    margin: auto;
+    width: 50%;
+    padding-left: 25px;
+  }
 }
 
 #toggler {
-	position:relative;
-	padding: 10px 20px;  
-	border: none;
-	background: none;
-	font-family: "Source Code Pro";
-	font-weight: 900;
-	text-transform: uppercase;
-	font-size: 40px;  
-	color: var(--text-color);
-	z-index: 0;  
-	overflow: hidden;   
+  position: relative;
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  font-family: "Source Code Pro";
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 40px;
+  color: var(--text-color);
+  z-index: 0;
+  overflow: hidden;
+  backdrop-filter: invert(1);
 }
 
 #toggler:hover {
-	text-shadow: 2px 2px 1px tomato;
+  text-shadow: 2px 2px 1px tomato;
 }
 
 .navbar-brand {
-    font-size: x-large;
-	font-weight: 700;
+  font-size: x-large;
+  font-weight: 700;
 }
 
-
 #dropdownItem:hover {
-	background-color: rgb(237, 237, 237);
+  background-color: rgb(237, 237, 237);
 }
 
 .container {
-	position: relative;
-	padding: 0;
-  }
+  position: relative;
+  padding: 0;
+}
 
+.video {
+  max-width: 25%;
+}
+
+@media only screen and (max-width: 600px) {
+  .video {
+    max-width: 100%;
+  }
+}
+
+/* 
 .projCard {
 	position: absolute;
-}
+} */
 
 .page-enter {
-	opacity: 0;
-	transform: scale(1.1);
-  }
-  
+  opacity: 0;
+  transform: scale(1.1);
+}
+
 .page-enter-active {
-	opacity: 1;
-	transform: scale(1);
-	transition: opacity 300ms, transform 300ms;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 300ms, transform 300ms;
 }
-  
+
 .page-exit {
-	opacity: 1;
-	transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
 }
-  
+
 .page-exit-active {
-	opacity: 0;
-	transform: scale(0.9);
-	transition: opacity 300ms, transform 300ms;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }
-  
