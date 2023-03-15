@@ -1,5 +1,5 @@
 import Project from "./ProjTemp";
-import AboutMe from "./AboutMe";
+import Bitcoin from "./Bitcoin";
 import ContactMe from "./ContactMe";
 import Table from "./Table";
 import Home from "./Home";
@@ -49,13 +49,13 @@ function Routing(props) {
       <Route path="/status">
         <Table label={paths[paths.length - 3].label} />
       </Route>
-      <Route path="/about">
-        <AboutMe label={paths[paths.length - 2].label} />
+      <Route path="/bitcoin">
+        <Bitcoin label={paths[paths.length - 2].label} />
       </Route>
       <Route path="/contact">
         <ContactMe label={paths[paths.length - 1].label} />
       </Route>
-      <Route exact path="/" render={() => <Redirect to="/proj1" />} />
+      <Route exact path="/" render={() => <Redirect to="/home" />} />
     </Container>
   );
 }

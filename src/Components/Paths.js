@@ -66,8 +66,8 @@ const paths = [
     path: "/status",
   },
   {
-    label: "About me",
-    path: "/about",
+    label: "Bitcoin",
+    path: "/bitcoin",
   },
   {
     label: "Contact me",

@@ -13,7 +13,6 @@ import { useHistory, Link } from "react-router-dom";
 function NavigationBar(props) {
   const history = useHistory();
   const [searchValue, setSearchValue] = useState("");
-  const [showDropdown, setShowDropdown] = useState(true);
 
   let paths = props.paths;
   let projects = props.projects;
@@ -22,14 +21,14 @@ function NavigationBar(props) {
     var items = [];
     for (let i = 5; i > 0; i--) {
       items.push(
-        <Nav.Link
+        <NavDropdown.Item
           key={i}
           as={Link}
           className="p-1 pl-0 m-auto"
           to={paths[paths.length - i].path}
         >
           {paths[paths.length - i].label}
-        </Nav.Link>
+        </NavDropdown.Item>
       );
     }
     return <div>{items}</div>;
@@ -52,32 +51,34 @@ function NavigationBar(props) {
       id="navigation"
       className="justify-content-center p-2"
       expand="always"
-      sticky="top"
-      expanded={showDropdown}
+      style={{
+        zIndex: "9",
+      }}
     >
       <Container fluid className="justify-content-center">
-        <Navbar.Toggle
-          className="px-2"
-          id="toggler"
-          onClick={() => setShowDropdown(true)}
-        >
+        <Navbar.Toggle className="px-2" id="toggler">
           Thomas Freeman
         </Navbar.Toggle>
         <Navbar.Collapse className="justify-content-center">
-          <Nav className="pr-3" style={{ maxHeight: "100px" }}>
+          <Nav
+            className="pr-3"
+            expanded={true}
+            style={{
+              maxHeight: "100px",
+            }}
+          >
             <NavDropdown title="My projects " id="small-print" align="end">
               {projects.map((element, index) => {
                 return (
-                  <Nav.Link
+                  <NavDropdown.Item
                     key={index}
                     as={Link}
                     className="px-3"
                     id="dropdownItem"
                     to={element.path}
-                    onClick={() => setShowDropdown(false)}
                   >
                     {element.label}
-                  </Nav.Link>
+                  </NavDropdown.Item>
                 );
               })}
               <div key="-1" className="m-0 p-0 pl-3">

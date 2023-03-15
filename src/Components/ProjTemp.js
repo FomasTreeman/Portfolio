@@ -67,13 +67,13 @@ const Project = (props) => {
             />
             <p className="mx-4 my-2 mt-3" style={{ overflow: "auto" }}></p>
             <Card.Img
-              style={{ padding: "1.2rem", "padding-bottom": 0 }}
+              style={{ padding: "1.2rem", paddingBottom: 0 }}
               src={props.imagePath[1]}
               rounded="true"
             />
             <p
               className="mx-4 mb-2"
-              style={{ opacity: "0.5", "font-size": "0.8em" }}
+              style={{ opacity: "0.5", fontSize: "0.8em" }}
             >
               This app was not deployed
             </p>
@@ -88,8 +88,8 @@ const Project = (props) => {
               src={video}
               className="video"
               controls="controls"
-              autoplay="true"
-              resizeMode={"contain"}
+              autoPlay={true}
+              resizemode={"contain"}
             />
             <p>
               A website for fetching weather forecast by week, hour and day.
