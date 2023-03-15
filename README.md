@@ -1,5 +1,4 @@
-# IN PROCESS OF PORTFOLIO REWRITE @ [NEW PORTFOLIO](https://github.com/FomasTreeman/ThomasFreeman-) USING SVELTE. THIS PORTFOLIO WAS TOYING WITH REACT BEFORE I WENT ON TO MY COMMS REPO >>>
-[comms repo](https://comm-a-fomastreeman.vercel.app/)
+# IN PROCESS OF PORTFOLIO REWRITE @ [NEW PORTFOLIO](https://github.com/FomasTreeman/ThomasFreeman-) USING SVELTE. THIS PORTFOLIO WAS TOYING WITH REACT BEFORE I WENT ON TO MY [COMMS](https://comm-a-fomastreeman.vercel.app/) REPO :)
 
 
 # Portfolio
